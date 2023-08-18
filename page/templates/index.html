@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Funding App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #00aaff;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0088cc;
+    }
+  </style>
+</head>
+<body>
+  {% for message in messages %}
+  <div class="alert alert-{{message.tags}} alert-disissible fade show" role="alert">
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true"> &times; </span>
+  </button>
+  </div>
+  {% endfor %}
+  
+  {% if user.is_authenticated %}
+    <h1>Welcome to the Crowdfunding App</h1>
+    <H2> Hello {{fname}} </H2>>
+    <h3>Successfully logged in</h3>
+  {% else %}
+    <div class="container">
+    <h1>Welcome to the Crowdfunding App</h1>
+    <a href="/signin" class="button">Sign In</a>
+    <a href="/signup" class="button">Sign Up</a>
+    <a href="/signout" class="button">Sign Out</a>
+    </div>
+  {% endif %}
+</body>
+</html>
