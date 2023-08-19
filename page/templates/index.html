@@ -3,13 +3,36 @@
 <head>
   <title>Funding App</title>
   <style>
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .header {
+    background-color: #156c21eb;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
     }
-    .container {
+    .container1 {
       max-width: 400px;
       margin: 100px auto;
       padding: 20px;
@@ -22,6 +45,7 @@
       margin-bottom: 20px;
     }
     .button {
+      
       display: inline-block;
       padding: 10px 20px;
       margin: 10px;
@@ -32,12 +56,76 @@
       border-radius: 5px;
       cursor: pointer;
     }
+    .button1 {
+      
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #f6868653;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      
+    }
     .button:hover {
       background-color: #0088cc;
     }
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  header {
+    background-color: #1b7317e8;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+  .project {
+    background-color: #e2de017b;
+    border: 1px solid #f0e9e9;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    width: calc(50% - 1rem);
+    margin: 3%;
+  }
+  .project h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  .project p {
+    margin: 0.5rem 0;
+    color: #666;
+  }
+  .btn {
+    background-color: #ff5a5f;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #e3494d;
+  }
   </style>
 </head>
-<body>
+<body style="background-color: #569178b7;">
   {% for message in messages %}
   <div class="alert alert-{{message.tags}} alert-disissible fade show" role="alert">
     <strong>Message:</strong> {{ message }}
@@ -48,15 +136,37 @@
   {% endfor %}
   
   {% if user.is_authenticated %}
-    <h1>Welcome to the Crowdfunding App</h1>
-    <H2> Hello {{fname}} </H2>>
-    <h3>Successfully logged in</h3>
-  {% else %}
+  <div class="header">
+    <h1>Welcome to Our Crowdfunding Portal</h1>
+    <p>"Its not how much we give but how much love we put into giving" </p> 
+    <a href="/signout" class="button1" style=" text-align: center;">Sign Out</a>
+     </div>
+     <H2 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;"> Hello {{fname}} !! ...Successfully logged in  </H2>
+    
+    
     <div class="container">
+      <div class="project">
+        <h2 style="color: #170101; font-family: 'Times New Roman', Times, serif; text-align: center;">Animal Fund </h2>
+        <p style="color: #130000;">" Until one has loved an animal, a part of one's soul remains unawakened "</p>
+        <p style="color: #0f0101;">Goal: Rs.100000</p>
+        <p style="color: #190101;">Amount Raised: Rs.0</p>
+      
+        <button class="btn">Support Now</button>
+      </div>
+      <div class="project">
+        <h2 style="color: #150202; font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;">Child Fund</h2>
+        <p style="color: #150101;">" If you light a lamp for somebody, it will also brighten your path "</p>
+        <p style="color: #210101;">Goal: Rs.200000</p>
+        <p style="color: #100101;" >Amount Raised: Rs.0 </p>
+        <button class="btn">Support Now</button>
+      </div> </div>
+      
+  {% else %}
+    <div class="container1">
     <h1>Welcome to the Crowdfunding App</h1>
     <a href="/signin" class="button">Sign In</a>
     <a href="/signup" class="button">Sign Up</a>
-    <a href="/signout" class="button">Sign Out</a>
+    
     </div>
   {% endif %}
 </body>
